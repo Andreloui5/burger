@@ -5,27 +5,27 @@
 
 <div class="container">
   <div class="row">
-    <h3>Burgers that have been made:</h3>
+    <h3 class="col text-center">Burgers that have been made:</h3>
     <hr>
   </div>
   <div class="row">
     <div class="col-sm-6">
-      <h4>Not eaten yet!</h4>
+      <h4 class="text-center mb-3">Not eaten yet</h4>
       <ul>
-        {{#each burger}}
+        {{#each burgers}}
         {{#unless devoured}}
-        {{> burger/burger-block devoured=true}}
+        {{> burgers/burger-block devoured=false}}
         {{/unless}}
         {{/each}}
       </ul>
     </div>
 
     <div class="col-sm-6">
-      <h4>Devoured!</h4>
+      <h4 class="text-center mb-3">Devoured!</h4>
       <ul>
-        {{#each burger}}
+        {{#each burgers}}
         {{#if devoured}}
-        {{> burger/burger-block devoured=false}}
+        {{> burgers/burger-block devoured=true}}
         {{/if}}
         {{/each}}
       </ul>
@@ -38,11 +38,11 @@
 
       <div class="form-group">
         <label for="burgers">Burger Name:</label>
-        <input type="text" id="burger" name="name">
+        <input type="text" id="burger" name="name" required="required">
       </div>
 
       <div class="form-group">
-        <label for="burgers">In what column would you like this burger to appear?</label><br>
+        <label for="burger">In what column would you like this burger to appear?</label><br>
         <input type="radio" name="devoured" value="1" checked> Devoured!<br>
         <input type="radio" name="devoured" value="0"> Not eaten yet.
       </div>

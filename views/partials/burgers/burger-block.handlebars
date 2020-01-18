@@ -1,8 +1,9 @@
-<li>
+<li class="row">
+	<div class="col-xl-7 m-1">
 	{{name}}
-
-	<button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
-		{{#if devoured}}Delicious!{{else}}Eat me!{{/if}}
+	</div>
+	<button class="change-devoured col-m-3 m-1 text-center" data-id="{{id}}" data-newdevoured="{{devoured}}">
+		{{#if devoured}}Make another!{{else}}Eat me!{{/if}}
 	</button>
-	<button class="delete-burger" data-id="{{id}}">DELETE!</button>
+	<button class="delete-burger col-m-3 m-1 text-center" data-id="{{this.id}}">DELETE!</button> 
 </li>

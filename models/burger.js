@@ -1,4 +1,4 @@
-const orm = require("../config/orm");
+const orm = require("../config/orm.js");
 
 var burger = {
 
@@ -12,13 +12,13 @@ var burger = {
       cb(res);
     });
   },
-  updateOne: function(newValue, condition, cb) {
-    orm.updateOne("burgers", newValue, condition, function(res){
+  updateOne: function(objColVals, condition, cb) {
+    orm.updateOne("burgers", objColVals, condition, function(res){
       cb(res)
     });
   },
   deleteOne: function(condition, cb) {
-    orm.delete("burgers", condition, function(res) {
+    orm.deleteOne("burgers", condition, function(res) {
       cb(res);
     });
   }

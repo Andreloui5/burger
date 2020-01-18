@@ -2,36 +2,33 @@ const express = require("express");
 const burger = require("../models/burger");
 
 
-var app = express();
-
-var PORT = process.env.PORT || 8080;
-
-
-// middleware
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-app.use(express.static("public"));
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
+const router = express.Router();
 
 // Routes
 // =====================================
-app.get("/", function (req, res) {
-  res.render();
+router.get("/", function (req, res) {
+  burger.selectAll(function(data) {
+    let hbsObject = {
+      burger: data
+    }
+    res.render("index", hbsObject);
+  });
+});
+
+router.post("/api/burgers", function (req, res) {
+  // calls the create function in burgers.js
+  burger.insertOne([
+    "name", "devoured"
+  ], [
+    req.body.name, req.body.devoured
+  ], function(result){
+    res.render("index", {burger_data:burgerData});
+    });
 })
 
-app.push("/", function (req, res) {
-  res.render();
-})
 
-app.put("/", function (req, res) {
-  res.render();
-})
+// router.deleteOne("/", function (req, res) {
+//   res.render();
+// })
 
-app.delete("/", function (req, res) {
-  res.render();
-})
+module.exports = router;

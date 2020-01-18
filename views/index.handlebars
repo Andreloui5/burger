@@ -1,0 +1,55 @@
+<div class="jumbotron">
+  <h1 class="display-4">Burgers!</h1>
+  <p class="lead">Add or devour a delicious burger!</p>
+  <hr class="my-4">
+</div>
+
+<container>
+<h1>Burgers!</h1>
+
+<h2>Burgers that are not eaten yet!</h2>
+
+<ul>
+  {{#each burger}}
+    {{#unless devoured}}
+      {{> burger/burger-block deovoured=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Deoured Burgers!</h2>
+
+<ul>
+  {{#each burger}}
+    {{#if deovoured}}
+      {{> burger/burger-block deovoured=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="burger">Burger Name:</label>
+    <input type="text" id="burg" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="burger"">Devoured?</label><br>
+    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+    <input type="radio" name="devoured" value="0"> Awake
+  </div>
+
+  <button type="submit">Add burger</button>
+</form>
+
+
+
+
+
+
+
+
+
+</container>

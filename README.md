@@ -6,7 +6,7 @@ This application is designed to allow a user to add and modify persistent data i
 The user can create a new burger at the bottom of the page, and assign an initial value to it of either 'devoured' or 'not eaten yet. Then, a user can click buttons to update a burger once it has been created, devouring it, making it again, or deleting it.
 
 
-![Burger](assets/images/BurgerApp.gif "UI for Burger App")
+![Burger](Public/assets/images/BurgerApp.gif "UI for Burger App")
 
 ## Technologies
 This site was written using:
